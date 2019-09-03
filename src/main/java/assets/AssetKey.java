@@ -4,6 +4,11 @@ public class AssetKey {
     private String crmAssetID;
     private String iForceAssetID;
 
+    public AssetKey(String crmAssetID, String iForceAssetID) {
+        this.crmAssetID = crmAssetID;
+        this.iForceAssetID = iForceAssetID;
+    }
+
     public String getCrmAssetID() {
         return crmAssetID;
     }
