@@ -10,7 +10,9 @@ public class AssetWorker extends WorkerActor<AssetWorker.InsertAssets> {
 
     @Override
     public Receive createReceive() {
-        return receiveBuilder().match(InsertAssets.class, this::onBatchReceived).build();
+        return receiveBuilder()
+                .match(InsertAssets.class, this::onBatchReceived)
+                .build();
     }
 
     @Override
