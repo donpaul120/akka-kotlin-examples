@@ -25,7 +25,7 @@ class GroupWorkerTest {
 
 
     @Test
-    fun `InsertGroupIntoCRM message should reply with a InsertedGroups message`(){
+    fun `sending InsertGroupIntoCRM message to GroupWorker should respond with an InsertedGroups message`(){
         TestKit(aSystem).apply {
             //Arrange
             val groupWorker = aSystem.actorOf(GroupWorker.props())
