@@ -42,9 +42,6 @@ public class AssetManager extends ETLSupervisor {
             return assets;
         }
 
-        public void setAssets(List<Asset> assets) {
-            this.assets = assets;
-        }
     }
 
     public static Props props() {

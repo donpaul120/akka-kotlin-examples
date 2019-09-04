@@ -35,6 +35,8 @@ dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
     implementation 'mysql:mysql-connector-java:8.0.17'
     implementation 'org.hibernate:hibernate-core:5.4.4.Final'
+
+    implementation 'com.oracle.jdbc:ojdbc8:19.3.0.0'
 }
 
 test{
