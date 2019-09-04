@@ -1,6 +1,9 @@
 package customers
 
+import akka.actor.Props
 import base.actor.ETLSupervisor
+import javax.persistence.EntityManager
+import javax.persistence.Persistence
 
 class CustomerManager : ETLSupervisor() {
 
@@ -25,6 +28,18 @@ class CustomerManager : ETLSupervisor() {
         //Do the needful
     }
 
+    override fun preStart() {
+        super.preStart()
+        val el = Persistence.createEntityManagerFactory("")
+    }
+
     //Messages
     data class InsertedCustomers(val batchId: String)
+
+    companion object {
+        @JvmStatic
+        fun props(): Props {
+            return Props.create(CustomerManager::class.java)
+        }
+    }
 }

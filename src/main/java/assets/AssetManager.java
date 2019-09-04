@@ -1,6 +1,7 @@
 package assets;
 
 import akka.actor.ActorRef;
+import akka.actor.Props;
 import base.actor.ETLSupervisor;
 
 import java.util.ArrayList;
@@ -25,15 +26,15 @@ public class AssetManager extends ETLSupervisor {
                 .build();
     }
 
-    private void onAssetsInserted(InsertedAssets insertedAssets){
-
+    private void onAssetsInserted(InsertedAssets insertedAssets) {
+        //Do something with the data inserted
     }
 
     //Messages
     public static class InsertedAssets {
         private List<Asset> assets;
 
-        InsertedAssets(String batchId, List<Asset> assets){
+        InsertedAssets(String batchId, List<Asset> assets) {
             this.assets = assets;
         }
 
@@ -44,5 +45,9 @@ public class AssetManager extends ETLSupervisor {
         public void setAssets(List<Asset> assets) {
             this.assets = assets;
         }
+    }
+
+    public static Props props() {
+        return Props.create(AssetManager.class);
     }
 }

@@ -13,19 +13,19 @@ class GroupWorkerTest {
     private lateinit var aSystem: ActorSystem
 
     @BeforeAll
-    fun setUp(){
+    fun setUp() {
         this.aSystem = ActorSystem.create("group-worker-test")
     }
 
 
     @AfterAll
-    fun tearDown(){
+    fun tearDown() {
         TestKit.shutdownActorSystem(this.aSystem)
     }
 
 
     @Test
-    fun `sending InsertGroupIntoCRM message to GroupWorker should respond with an InsertedGroups message`(){
+    fun `sending InsertGroupIntoCRM message to GroupWorker should respond with an InsertedGroups message`() {
         TestKit(aSystem).apply {
             //Arrange
             val groupWorker = aSystem.actorOf(GroupWorker.props())

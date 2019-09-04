@@ -7,9 +7,8 @@ class CustomerWorker : WorkerActor<CustomerWorker.InsertCustomer>() {
 
     override fun createReceive(): Receive {
         return receiveBuilder()
-                .match(InsertCustomer::class.java) {
-
-                }.build()
+                .match(InsertCustomer::class.java, this::onBatchReceived)
+                .build()
     }
 
     override fun onBatchReceived(batch: InsertCustomer) {
@@ -20,11 +19,11 @@ class CustomerWorker : WorkerActor<CustomerWorker.InsertCustomer>() {
     }
 
     private fun insertCustomerIntoCRM(customers: List<Customer>){
-
+        sender.tell(CustomerManager.InsertedCustomers("1"), self)
     }
 
     private fun insertCustomerIntoIForce(customers: List<Customer>){
-
+        sender.tell(CustomerManager.InsertedCustomers("1"), self)
     }
 
     sealed class InsertCustomer {

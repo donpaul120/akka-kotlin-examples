@@ -1,16 +1,20 @@
 import akka.actor.AbstractActor
 import akka.actor.ActorRef
 import akka.actor.Props
+import assets.AssetManager
+import customers.CustomerManager
 import groups.GroupManager
 
 class ETLManager : AbstractActor() {
 
     //contains all managers
-    private lateinit var groupManager:ActorRef
+    private lateinit var groupManager: ActorRef
+    private lateinit var customerManager: ActorRef
+    private lateinit var assetManager: ActorRef
 
     override fun createReceive(): Receive {
         return receiveBuilder()
-                .match(String::class.java){
+                .match(String::class.java) {
 
                 }
                 .build()
@@ -18,6 +22,8 @@ class ETLManager : AbstractActor() {
 
     override fun preStart() {
         this.groupManager = context.actorOf(GroupManager.props())
+        this.customerManager = context.actorOf(CustomerManager.props())
+        this.assetManager = context.actorOf(AssetManager.props())
         super.preStart()
     }
 

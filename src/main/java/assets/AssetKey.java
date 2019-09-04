@@ -1,27 +1,25 @@
 package assets;
 
 public class AssetKey {
-    private String crmAssetID;
-    private String iForceAssetID;
+    private final String crmAssetID;
+    private final String iForceAssetID;
+    private final String dtId;
 
-    public AssetKey(String crmAssetID, String iForceAssetID) {
+    public AssetKey(String crmAssetID, String iForceAssetID, String dtId) {
         this.crmAssetID = crmAssetID;
         this.iForceAssetID = iForceAssetID;
+        this.dtId = dtId;
     }
 
     public String getCrmAssetID() {
         return crmAssetID;
     }
 
-    public void setCrmAssetID(String crmAssetID) {
-        this.crmAssetID = crmAssetID;
-    }
-
     public String getIForceAssetID() {
         return iForceAssetID;
     }
 
-    public void setIForceAssetID(String iForceAssetID) {
-        this.iForceAssetID = iForceAssetID;
+    public String getDtId() {
+        return dtId;
     }
 }

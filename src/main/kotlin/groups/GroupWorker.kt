@@ -8,7 +8,9 @@ class GroupWorker : WorkerActor<GroupWorker.InsertGroups>() {
     private val log = Logging.getLogger(this)
 
     override fun createReceive(): Receive {
-        return receiveBuilder().match(InsertGroups::class.java) { onBatchReceived(it) }.build()
+        return receiveBuilder()
+                .match(InsertGroups::class.java, this::onBatchReceived)
+                .build()
     }
 
     override fun onBatchReceived(batch: InsertGroups) {
