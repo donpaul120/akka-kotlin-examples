@@ -1,7 +1,7 @@
 import akka.actor.ActorSystem
 import akka.testkit.javadsl.TestKit
-import com.vasconsolutions.groups.GroupManager
-import com.vasconsolutions.groups.GroupWorker
+import com.examples.groups.GroupManager
+import com.examples.groups.GroupWorker
 
 import org.junit.jupiter.api.AfterAll
 import org.junit.jupiter.api.BeforeAll

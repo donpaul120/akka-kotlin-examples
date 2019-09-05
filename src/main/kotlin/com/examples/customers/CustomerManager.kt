@@ -1,7 +1,7 @@
-package com.vasconsolutions.customers
+package com.examples.customers
 
 import akka.actor.Props
-import com.vasconsolutions.base.actor.ETLSupervisor
+import com.examples.base.actor.ETLSupervisor
 
 class CustomerManager : ETLSupervisor() {
 

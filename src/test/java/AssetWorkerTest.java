@@ -1,8 +1,8 @@
 import akka.actor.ActorRef;
 import akka.actor.ActorSystem;
 import akka.testkit.javadsl.TestKit;
-import com.vasconsolutions.j.assets.AssetManager;
-import com.vasconsolutions.j.assets.AssetWorker;
+import com.examples.j.assets.AssetManager;
+import com.examples.j.assets.AssetWorker;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;

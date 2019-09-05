@@ -1,4 +1,4 @@
-package com.vasconsolutions.customers
+package com.examples.customers
 
 import javax.persistence.*
 

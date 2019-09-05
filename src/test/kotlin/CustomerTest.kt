@@ -1,5 +1,5 @@
-import com.vasconsolutions.base.PersistenceMgr
-import com.vasconsolutions.customers.Customer
+import com.examples.base.PersistenceMgr
+import com.examples.customers.Customer
 import org.assertj.core.api.Assertions.*
 import org.hibernate.testing.transaction.TransactionUtil.doInJPA
 import org.junit.jupiter.api.AfterAll

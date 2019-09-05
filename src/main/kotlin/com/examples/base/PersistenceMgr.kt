@@ -1,4 +1,4 @@
-package com.vasconsolutions.base
+package com.examples.base
 
 import javax.persistence.EntityManager
 import javax.persistence.EntityManagerFactory

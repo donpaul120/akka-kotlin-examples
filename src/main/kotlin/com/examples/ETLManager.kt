@@ -1,11 +1,11 @@
-package com.vasconsolutions
+package com.examples
 
 import akka.actor.AbstractActor
 import akka.actor.ActorRef
 import akka.actor.Props
-import com.vasconsolutions.j.assets.AssetManager
-import com.vasconsolutions.customers.CustomerManager
-import com.vasconsolutions.groups.GroupManager
+import com.examples.j.assets.AssetManager
+import com.examples.customers.CustomerManager
+import com.examples.groups.GroupManager
 
 class ETLManager : AbstractActor() {
 

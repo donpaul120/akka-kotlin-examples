@@ -1,7 +1,7 @@
 import akka.actor.ActorSystem
 import akka.testkit.javadsl.TestKit
-import com.vasconsolutions.customers.CustomerManager
-import com.vasconsolutions.customers.CustomerWorker
+import com.examples.customers.CustomerManager
+import com.examples.customers.CustomerWorker
 import org.junit.jupiter.api.AfterAll
 import org.junit.jupiter.api.BeforeAll
 import org.junit.jupiter.api.Test

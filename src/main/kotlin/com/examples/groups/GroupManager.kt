@@ -1,10 +1,10 @@
-package com.vasconsolutions.groups
+package com.examples.groups
 
 import akka.actor.ActorRef
 import akka.actor.Props
 import akka.event.Logging
-import com.vasconsolutions.base.actor.ETLSupervisor
-import com.vasconsolutions.base.model.GroupKey
+import com.examples.base.actor.ETLSupervisor
+import com.examples.base.model.GroupKey
 
 /**
  * The groupManager will load com.vasconsolutions.groups from CIS

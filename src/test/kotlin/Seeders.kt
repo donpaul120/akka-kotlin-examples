@@ -1,4 +1,4 @@
-import com.vasconsolutions.customers.Customer
+import com.examples.customers.Customer
 
 class Seeders {
 

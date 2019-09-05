@@ -1,8 +1,8 @@
-package com.vasconsolutions.groups
+package com.examples.groups
 
 import akka.actor.Props
 import akka.event.Logging
-import com.vasconsolutions.base.actor.WorkerActor
+import com.examples.base.actor.WorkerActor
 
 class GroupWorker : WorkerActor<GroupWorker.InsertGroups>() {
     private val log = Logging.getLogger(this)
