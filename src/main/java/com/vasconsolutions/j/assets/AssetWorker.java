@@ -1,7 +1,7 @@
-package assets;
+package com.vasconsolutions.j.assets;
 
 import akka.actor.Props;
-import base.actor.WorkerActor;
+import com.vasconsolutions.base.actor.WorkerActor;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -37,8 +37,7 @@ public class AssetWorker extends WorkerActor<AssetWorker.InsertAssets> {
     }
 
     //Messages
-    interface InsertAssets {
-    }
+    interface InsertAssets { }
 
     public static class InsertAssetsIntoCRM implements InsertAssets {
         private List<Asset> assets;

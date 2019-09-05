@@ -1,8 +1,8 @@
-package assets;
+package com.vasconsolutions.j.assets;
 
 import akka.actor.ActorRef;
 import akka.actor.Props;
-import base.actor.ETLSupervisor;
+import com.vasconsolutions.base.actor.ETLSupervisor;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -15,7 +15,9 @@ public class AssetManager extends ETLSupervisor {
     @Override
     public void onLoad() {
         ActorRef assetWorker = context().actorOf(AssetWorker.props());
-        assetWorker.tell(new AssetWorker.InsertAssetsIntoCRM("", new ArrayList<>()), self());
+        List<Asset> nAssets = new ArrayList<>();
+//        nAssets.add(new Asset.DistributionTransformer("", "", "", "", ""));
+//        assetWorker.tell(new AssetWorker.InsertAssetsIntoCRM("", nAssets), self());
     }
 
     @Override
@@ -30,7 +32,7 @@ public class AssetManager extends ETLSupervisor {
         //Do something with the data inserted
     }
 
-    //Messages
+    //@Messages
     public static class InsertedAssets {
         private List<Asset> assets;
 

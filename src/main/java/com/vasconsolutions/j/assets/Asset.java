@@ -1,12 +1,12 @@
-package assets;
+package com.vasconsolutions.j.assets;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
+
 
 abstract class Asset {
 
-    private Asset() { }
+    private Asset() {
+    }
 
     /*
      * For Distribution Transformers
@@ -27,11 +27,16 @@ abstract class Asset {
         @Column(name = "INST_ADDR")
         private final String installedAddress;
 
-        public DistributionTransformer(String assetID, String assetName, String serialNo, String installedAddress){
+        @Column(name = "ORG_NO")
+        private final String orgNo;
+
+        DistributionTransformer(String assetID, String assetName,
+                                String serialNo, String installedAddress, String orgNo) {
             this.assetID = assetID;
             this.assetName = assetName;
             this.serialNo = serialNo;
             this.installedAddress = installedAddress;
+            this.orgNo = orgNo;
         }
 
         public String getAssetID() {
@@ -49,6 +54,10 @@ abstract class Asset {
         public String getInstalledAddress() {
             return installedAddress;
         }
+
+        public String getOrgNo() {
+            return orgNo;
+        }
     }
 
     /*
@@ -56,6 +65,16 @@ abstract class Asset {
      */
     @Entity
     @Table(name = "CRMS.G_LINE")
+    @NamedQueries({
+            @NamedQuery(name = "countFeeders", query = "SELECT COUNT(*) AS count FROM CRMS.G_LINE")
+    })
+    @NamedNativeQueries({
+            @NamedNativeQuery(
+                    name = "Feeder_FindCISFeeders",
+                    query = "SELECT * FROM (SELECT CRMS.G_LINE.LINE_ID, CRMS.G_LINE.LINE_NO, CRMS.G_LINE.LINE_NAME,CRMS.G_LINE.ORG_NO,CRMS.G_LINE.LINE_TYPE,CRMS.G_LINE.VOLT_CODE, ROW_NUMBER() OVER (ORDER BY CRMS.G_LINE.LINE_ID ASC) AS row_n FROM CRMS.G_LINE) WHERE row_n BETWEEN :offset AND :limit",
+                    resultClass = Feeder.class
+            )
+    })
     public static final class Feeder extends Asset {
 
         @Column(name = "LINE_NAME")
@@ -70,11 +89,15 @@ abstract class Asset {
         @Column(name = "VOLT_CODE")
         private final String assetType;
 
-        public Feeder(String assetName, String assetID, String serialNo, String assetType){
+        @Column(name = "ORG_NO")
+        private final String orgNo;
+
+        public Feeder(String assetName, String assetID, String serialNo, String assetType, String  orgNo) {
             this.assetName = assetName;
             this.assetID = assetID;
             this.serialNo = serialNo;
             this.assetType = assetType;
+            this.orgNo = orgNo;
         }
 
         public String getAssetName() {
@@ -91,6 +114,10 @@ abstract class Asset {
 
         public String getAssetType() {
             return assetType;
+        }
+
+        public String getOrgNo() {
+            return orgNo;
         }
     }
 
@@ -114,11 +141,15 @@ abstract class Asset {
         @Column(name = "SUBS_ADDR")
         private final String installedAddress;
 
-        public Substation(String assetID, String assetName, String serialNo, String installedAddress){
+        @Column(name = "ORG_NO")
+        private final String orgNo;
+
+        public Substation(String assetID, String assetName, String serialNo, String installedAddress, String  orgNo) {
             this.assetID = assetID;
             this.assetName = assetName;
             this.serialNo = serialNo;
             this.installedAddress = installedAddress;
+            this.orgNo = orgNo;
         }
 
         public String getAssetID() {
@@ -135,6 +166,10 @@ abstract class Asset {
 
         public String getInstalledAddress() {
             return installedAddress;
+        }
+
+        public String getOrgNo() {
+            return orgNo;
         }
     }
 }

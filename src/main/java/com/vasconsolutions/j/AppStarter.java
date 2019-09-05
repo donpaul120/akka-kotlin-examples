@@ -1,5 +1,8 @@
+package com.vasconsolutions.j;
+
 import akka.actor.ActorRef;
 import akka.actor.ActorSystem;
+import com.vasconsolutions.ETLManager;
 
 
 public class AppStarter {

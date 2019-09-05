@@ -1,4 +1,4 @@
-package base.model
+package com.vasconsolutions.base.model
 
 /**
  * @param crmId - The Group Id from CRM

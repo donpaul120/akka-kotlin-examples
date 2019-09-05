@@ -1,14 +1,15 @@
 import akka.actor.ActorRef;
 import akka.actor.ActorSystem;
 import akka.testkit.javadsl.TestKit;
-import assets.AssetManager;
-import assets.AssetWorker;
+import com.vasconsolutions.j.assets.AssetManager;
+import com.vasconsolutions.j.assets.AssetWorker;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
 
 import java.util.ArrayList;
+
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 class AssetWorkerTest {

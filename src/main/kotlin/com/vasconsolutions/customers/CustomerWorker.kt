@@ -1,7 +1,7 @@
-package customers
+package com.vasconsolutions.customers
 
 import akka.actor.Props
-import base.actor.WorkerActor
+import com.vasconsolutions.base.actor.WorkerActor
 
 class CustomerWorker : WorkerActor<CustomerWorker.InsertCustomer>() {
 

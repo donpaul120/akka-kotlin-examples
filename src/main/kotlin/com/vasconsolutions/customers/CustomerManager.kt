@@ -1,9 +1,7 @@
-package customers
+package com.vasconsolutions.customers
 
 import akka.actor.Props
-import base.actor.ETLSupervisor
-import javax.persistence.EntityManager
-import javax.persistence.Persistence
+import com.vasconsolutions.base.actor.ETLSupervisor
 
 class CustomerManager : ETLSupervisor() {
 
@@ -30,7 +28,6 @@ class CustomerManager : ETLSupervisor() {
 
     override fun preStart() {
         super.preStart()
-        val el = Persistence.createEntityManagerFactory("")
     }
 
     //Messages
