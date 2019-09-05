@@ -1,8 +1,8 @@
-package groups
+package com.vasconsolutions.groups
 
 import akka.actor.Props
 import akka.event.Logging
-import base.actor.WorkerActor
+import com.vasconsolutions.base.actor.WorkerActor
 
 class GroupWorker : WorkerActor<GroupWorker.InsertGroups>() {
     private val log = Logging.getLogger(this)
@@ -28,7 +28,7 @@ class GroupWorker : WorkerActor<GroupWorker.InsertGroups>() {
         sender.tell(GroupManager.InsertedGroups("", listOf()), self)
     }
 
-    //Messages
+    //@Messages
     sealed class InsertGroups {
         data class InsertGroupsCRM(val batchId: String, val groups: List<Group>) : InsertGroups()
         data class InsertGroupsIForce(val batchId: String, val groups: List<Group>) : InsertGroups()

@@ -1,4 +1,4 @@
-package base.actor
+package com.vasconsolutions.base.actor
 
 import akka.actor.AbstractActor
 

@@ -1,4 +1,4 @@
-package assets;
+package com.vasconsolutions.j.assets;
 
 public class AssetKey {
     private final String crmAssetID;

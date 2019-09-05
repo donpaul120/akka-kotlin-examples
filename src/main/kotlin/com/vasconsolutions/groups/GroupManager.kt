@@ -1,13 +1,13 @@
-package groups
+package com.vasconsolutions.groups
 
 import akka.actor.ActorRef
 import akka.actor.Props
 import akka.event.Logging
-import base.actor.ETLSupervisor
-import base.model.GroupKey
+import com.vasconsolutions.base.actor.ETLSupervisor
+import com.vasconsolutions.base.model.GroupKey
 
 /**
- * The groupManager will load groups from CIS
+ * The groupManager will load com.vasconsolutions.groups from CIS
  */
 class GroupManager : ETLSupervisor() {
     private val log = Logging.getLogger(this)
@@ -38,7 +38,7 @@ class GroupManager : ETLSupervisor() {
 
     override fun onLoad() {
         /*
-         * Load groups from CIS and distribute to GroupWorkers
+         * Load com.vasconsolutions.groups from CIS and distribute to GroupWorkers
          * Each GroupWorker should know how it connects to the
          * destination
          */
@@ -47,10 +47,10 @@ class GroupManager : ETLSupervisor() {
     }
 
     /**
-     * Triggered when groups are inserted
+     * Triggered when com.vasconsolutions.groups are inserted
      */
     private fun onGroupsInserted(insertedGroups: InsertedGroups) {
-        //process the groups inserted and save
+        //process the com.vasconsolutions.groups inserted and save
         log.info(insertedGroups.toString())
     }
 
